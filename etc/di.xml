@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Boangri\Attribute\Api\Data\CmsPageAttributeInterface" type="Boangri\Attribute\Model\CmsPageAttribute"/>
+    <type name="Magento\Catalog\Api\ProductRepositoryInterface">
+        <plugin name="cms_page_extension_attribute" type="Boangri\Attribute\Plugin\CmsPage"/>
+    </type>
+</config>
