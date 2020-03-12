@@ -48,7 +48,11 @@ class CmsPage
         ProductRepositoryInterface $productRepository,
         ProductInterface $product
     ) {
-        $identifier = $product->getCustomAttribute('cms_page_id')->getValue();
+        $customAttribute = $product->getCustomAttribute('cms_page_id');
+        if (!$customAttribute) {
+            return $product;
+        }
+        $identifier = $customAttribute->getValue();
         $page = $this->pageRepository->getById($identifier);
         if (!$page->getId()) {
             return $product;
